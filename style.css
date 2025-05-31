@@ -1,0 +1,80 @@
+/* Import a cute, rounded font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffe2ec;         /* Soft pinkish background */
+  font-family: 'Quicksand', sans-serif;
+  color: #e75480;                     /* Pink/red text */
+  overflow: hidden;                   /* Hide scrollbars since emojis float */
+  position: relative;
+}
+
+/* Layer your provided GIF as a faint, repeating background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('heart.gif'); /* Make sure heart.gif is in this same folder */
+  background-size: 60px;
+  background-repeat: repeat;
+  opacity: 0.1;                        /* Very faint so text stays legible */
+  z-index: -1;
+}
+
+/* Center the “Hope you feel better” message */
+.message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.heading {
+  font-size: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+/* A little floating pixel heart next to the text */
+.pixel-heart {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background-image: url('heart.gif');
+  background-size: cover;
+  animation: float 3s ease-in-out infinite alternate;
+}
+
+/* Floating animation for the pixel-heart */
+@keyframes float {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-20px); }
+}
+
+/* Pug emojis that “explode” (scale + fade) in a loop */
+.pug {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  animation: explode 5s infinite;
+}
+
+/* Keyframes for the “explode” effect */
+@keyframes explode {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3) rotate(360deg);
+    opacity: 0;
+  }
+}
