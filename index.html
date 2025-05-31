@@ -20,7 +20,7 @@
             position: relative;
         }
 
-        /* Use the provided heart.gif as a faint, repeating background */
+        /* Faint repeating heart.gif background */
         .hearts-container {
             position: absolute;
             top: 0;
@@ -32,7 +32,7 @@
             background-image: url('heart.gif');
             background-size: 60px;
             background-repeat: repeat;
-            opacity: 0.1; /* Make it very subtle */
+            opacity: 0.1; /* Subtle */
         }
 
         .container {
@@ -54,10 +54,6 @@
             animation: bounce 2s infinite;
         }
 
-        .hearts-container {
-            /* (styles already defined above) */
-        }
-
         .pug-container {
             display: flex;
             gap: 2rem;
@@ -66,8 +62,10 @@
             position: relative;
         }
 
+        /* The pixel pug images */
         .pug {
-            font-size: 4rem;
+            width: 80px;               /* adjust size as needed */
+            height: auto;
             animation: pugBounce 1.5s ease-in-out infinite;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -77,10 +75,12 @@
             transform: scale(1.2);
         }
 
+        .pug:nth-child(1) {
+            animation-delay: 0s;
+        }
         .pug:nth-child(2) {
             animation-delay: 0.3s;
         }
-
         .pug:nth-child(3) {
             animation-delay: 0.6s;
         }
@@ -165,7 +165,7 @@
             }
             
             .pug {
-                font-size: 3rem;
+                width: 60px; /* slightly smaller on mobile */
             }
         }
     </style>
@@ -178,11 +178,11 @@
         <!-- Main “Hope You Feel Better!” message -->
         <h1 class="main-message">Hope You Feel Better! 💕</h1>
         
-        <!-- Pug emojis that explode on click -->
+        <!-- Replace emojis with your pixel pug image (saved as pug.png) -->
         <div class="pug-container">
-            <div class="pug" onclick="createExplosion(this)">🐶</div>
-            <div class="pug" onclick="createExplosion(this)">🐕</div>
-            <div class="pug" onclick="createExplosion(this)">🐾</div>
+            <img src="pug.png" class="pug" alt="Pixel Pug 1" onclick="createExplosion(this)">
+            <img src="pug.png" class="pug" alt="Pixel Pug 2" onclick="createExplosion(this)">
+            <img src="pug.png" class="pug" alt="Pixel Pug 3" onclick="createExplosion(this)">
         </div>
         
         <!-- A little love note below -->
